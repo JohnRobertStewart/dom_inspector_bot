@@ -6,7 +6,7 @@ module.exports = {
     MERC_URL: '/mercs',
     SITE_URL: '/sites',
     UNIT_URL: '/units',
-    FUZZY_MATCH_URL: 'https://54ef-2001-569-74d3-5c00-816c-6cd0-1839-37d7.ngrok-free.app',
+    FUZZY_MATCH_URL: '?match=fuzzy&name=',
     WRONG_BOT_URL: 'https://i.imgflip.com/7etmml.jpg',
     // BOOLI_JUDGEMENT_URL: 'https://cdn.discordapp.com/attachments/987276632538615868/1085964382992863303/BooliJudgement.png',
     // BOOLI_MALICIOUS_URL: 'https://cdn.discordapp.com/attachments/987276632538615868/1085964383332618331/BooliMalicious.png',
@@ -18,5 +18,6 @@ module.exports = {
         'https://cdn.discordapp.com/attachments/987276632538615868/1085964383663956018/BooliPreen.png',
         'https://cdn.discordapp.com/attachments/987276632538615868/1085964383949164545/BooliUnamused.png',
      ],
+     PING_URL: '/ping',
 };
 

@@ -1,17 +1,17 @@
 const fs = require('node:fs');
 const path = require('node:path');
 require('discord-reply'); //Before discord.client
-const { Client, Collection, Intents, Events, GatewayIntentBits } = require('discord.js');
+const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
 const Discord = require('discord.js');
-const { EmbedBuilder } = require('discord.js');
-// const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, Events} = require('discord.js'); --- For Buttons, waiting on v14...
+const { EmbedBuilder } = require('discord.js'); const { ActionRowBuilder, ButtonBuilder, ButtonStyle,  Events} = require('discord.js'); //--- For Buttons, waiting on v14...
 const { getItem } = require('./utils/itemHelper');
 const { getSpell } = require('./utils/spellHelper');
 const { getMerc } = require('./utils/mercHelper');
 const { getSite } = require('./utils/siteHelper');
 const { getUnit } = require('./utils/unitHelper');
 const { getHelpEmbed } = require('./utils/helpEmbed');
+const { getPing } = require('./info/ping');
 const { WRONG_BOT_URL, ALL_BOOLI_URL } = require('./utils/utils');
 
 const client = new Client({ 
@@ -138,18 +138,22 @@ client.on("messageCreate", async (message) => {
             	.setImage(randomBooli);
         await message.channel.send({ embeds: [booliEmbed]});
 	}
+	if (message.content.startsWith(`${prefix}ping`)){
+		await message.channel.send({ embeds: [getPing()] });
+	}
+	
 	
 	//Button Test - waiting for discord.js v14 first...
-	// if (message.content.startsWith(`${prefix}button`)){
-	// 	const row = new ActionRowBuilder()
-	// 	.addComponents(
-	// 		new ButtonBuilder()
-	// 			.setCustomId('primary')
-	// 			.setLabel('Click me!')
-	// 			.setStyle(ButtonStyle.Primary),
-	// 	);
-	// 	const buttonEmbed = new EmbedBuilder()
-    //         	.setTitle("Testing Button")	
-    //     await message.channel.send({ embeds: [buttonEmbed], components: [row] });
-	// }
+	if (message.content.startsWith(`${prefix}button`)){
+	 	const row = new ActionRowBuilder()
+	 	.addComponents(
+	 		new ButtonBuilder()
+				.setCustomId('primary')
+				.setLabel('Click me!')
+	 			.setStyle(ButtonStyle.Primary),
+	 	);
+	 	const buttonEmbed = new EmbedBuilder()
+             	.setTitle("Testing Button")	
+         await message.channel.send({ embeds: [buttonEmbed], components: [row] });
+	 }
 });
