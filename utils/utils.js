@@ -2,7 +2,6 @@ module.exports = {
     BASE_URL: 'https://dom5api.illwiki.com',
     ITEM_URL: '/items',
     SPELL_URL: '/spells',
-    COMMANDER_URL: '/commanders',
     MERC_URL: '/mercs',
     SITE_URL: '/sites',
     UNIT_URL: '/units',
@@ -18,6 +17,5 @@ module.exports = {
         'https://cdn.discordapp.com/attachments/987276632538615868/1085964383663956018/BooliPreen.png',
         'https://cdn.discordapp.com/attachments/987276632538615868/1085964383949164545/BooliUnamused.png',
      ],
-     PING_URL: '/ping',
 };
 

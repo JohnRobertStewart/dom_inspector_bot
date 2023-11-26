@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { getUnit } = require('../../utils/unitHelper');
 
-
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('unit')
@@ -10,7 +9,8 @@ module.exports = {
 
 	async execute(interaction) {
         let unitName = interaction.options.getString('unit_name');
-        const unitEmbed = await getUnit( unitName );
+		var unitCommandData = interaction;
+        const unitEmbed = await getUnit( unitName, unitCommandData );
         await interaction.reply({ embeds: [unitEmbed] });
 	},
 };

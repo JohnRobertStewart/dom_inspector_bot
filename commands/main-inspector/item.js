@@ -9,7 +9,8 @@ module.exports = {
 
 	async execute(interaction) {
         let itemName = interaction.options.getString('item_name');
-        const itemEmbed = await getItem( itemName );
+		var itemCommandData = interaction;
+        const itemEmbed = await getItem( itemName, itemCommandData );
         await interaction.reply({ embeds: [itemEmbed] });
 	},
 };

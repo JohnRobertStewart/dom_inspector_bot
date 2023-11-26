@@ -1,31 +1,20 @@
 {
   "name": "dom_inspector_bot",
   "version": "1.0.0",
-  "description": "test bot for discord",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "nodemon app.js",
-    "register": "node commands.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/core": "^0.6.0",
-    "@discordjs/rest": "^1.7.1",
-    "a": "^3.0.1",
-    "all": "^0.0.0",
     "camelcase": "^7.0.1",
-    "discord-api-types": "^0.37.48",
     "discord-reply": "^0.1.2",
     "discord.js": "^14.9.0",
     "dotenv": "^16.0.1",
-    "git": "^0.1.5",
     "gitignore": "^0.7.0",
+    "sqlite3": "^5.1.6",
     "undici": "^5.6.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.1"
   }
 }

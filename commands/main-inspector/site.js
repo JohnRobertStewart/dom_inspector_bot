@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { getSite } = require('../../utils/siteHelper');
 
-
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('site')
@@ -10,7 +9,8 @@ module.exports = {
 
 	async execute(interaction) {
         const siteName = interaction.options.getString('site_name');
-        const siteEmbed = await getSite( siteName );
+		var siteCommandData = interaction;
+        const siteEmbed = await getSite( siteName, siteCommandData );
         await interaction.reply({ embeds: [siteEmbed] });
 	},
 };
