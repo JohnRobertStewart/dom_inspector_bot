@@ -15,6 +15,7 @@ module.exports = {
         '1175513268320735322', // Dom Inspector Bot Test Server -- #better-test
         '1176173846118805554', // Immersion -- #mentor-note-beta-testing
         '1007203153252454401', // Dom Inspector Bot Test Server -- #main-bot-testing
-    ],
+        '1128429616785272842', // My server (JOR)
+        ],
 };
 

@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const dbPath = path.resolve(__dirname, "database");
 require('discord-reply'); //Before discord.client
 const { Client, Collection, Intents, Events, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
@@ -17,6 +18,7 @@ const { mentorWhitelist, channelWhiteList } = require('./utils/whitelist');
 const { request } = require('undici');
 const { stringify } = require('node:querystring');
 const sqlite3 = require('sqlite3').verbose();
+
 
 const client = new Client({ 
 	intents: [
@@ -403,10 +405,11 @@ function createLog(message){
 
 // Embed creation for prefix commands
 async function createLogEmbed(message) {
-    //console.log(interaction);
+	//console.log(interaction);
+	console.log(message);
     if (!message) return;
     else {
-        const channel = client.channels.cache.get('1165999070272303174');
+        const channel = client.channels.cache.get('1178225114433716364');
         const server = message.guild;
 		const serverId = message.guildId;
 		const channelName = message.channel;
@@ -440,9 +443,10 @@ async function createLogEmbed(message) {
 let sql;
 
 // Connects to DB
-const db = new sqlite3.Database("./logs.db", sqlite3.OPEN_READWRITE,(err)=>{
+let db = new sqlite3.Database("./logs.db", sqlite3.OPEN_READWRITE,(err)=>{
 	if(err) return console.error(err.message);
 });
+
 
 // Create table to store usage logs
 sql = `CREATE TABLE IF NOT EXISTS logs (
